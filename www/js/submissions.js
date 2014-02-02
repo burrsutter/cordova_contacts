@@ -22,11 +22,13 @@ APPMODULE.namespace('APPMODULE.submissions.deleteContact');
 /*
  * Listen for and handle the Create, Update, and Delete actions of the app.
  */
-$(document).ready(function() {
+//$(document).ready(function() {
+document.addEventListener("deviceready",function() {
     //Initialize the vars in the beginning so that you will always have access to them.
     var getCurrentTime = APPMODULE.util.getCurrentTime,
     	run;
 
+    var restEndpoint = "http://crudcontacts-html5.rhcloud.com/rest/members";
     //This used to transform Form data into JSON.
     $.fn.serializeObject = function() {
         var o = {};
@@ -105,7 +107,7 @@ $(document).ready(function() {
                  *   complete, the callback is fired immediately.)
                  */
                 var jqxhr = $.ajax({
-                    url: 'rest/members',
+                    url: restEndpoint,
                     contentType: "application/json",
                     dataType: "json",
                     data: memberData,
@@ -251,7 +253,7 @@ $(document).ready(function() {
 	             *   complete, the callback is fired immediately.)
 	             */
 	            var jqxhr = $.ajax({
-	                url: 'rest/members',
+	                url: restEndpoint,
 	                contentType: "application/json",
 	                dataType: "json",
 	                data: memberData,
@@ -370,7 +372,7 @@ $(document).ready(function() {
              *   complete, the callback is fired immediately.)
              */
             var jqxhr = $.ajax({
-                url: 'rest/members',
+                url: restEndpoint,
                 contentType: "application/json",
                 dataType: "json",
                 data: memberData,
@@ -410,3 +412,4 @@ $(document).ready(function() {
     //Set up each of these event listeners.
     run();
 });
+//});

@@ -32,7 +32,7 @@ APPMODULE.namespace('APPMODULE.app.buildContactDetail');
  * 
  * These functions perform the GET. They display the list, detailed list, and fill in the update form.
  */
-$( document ).on( "deviceready", function(mainEvent) {
+$( document ).on( "pageinit", function(mainEvent) {
     //Initialize the vars in the beginning so that you will always have access to them.
 	var getCurrentTime = APPMODULE.util.getCurrentTime;
 	console.log(getCurrentTime() + " [js/app.js] (document -> deviceready) - start");
